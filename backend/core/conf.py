@@ -18,15 +18,21 @@ class Settings(BaseSettings):
     ENVIRONMENT: Literal['dev', 'pro']
 
     # Env MySQL
-    MYSQL_HOST: str
-    MYSQL_PORT: int
-    MYSQL_USER: str
-    MYSQL_PASSWORD: str
+    # MYSQL_HOST: str
+    # MYSQL_PORT: int
+    # MYSQL_USER: str
+    # MYSQL_PASSWORD: str
+
+    # Env Pgsql
+    PGSQL_HOST: str
+    PGSQL_PORT: int
+    PGSQL_USER: str
+    PGSQL_PASSWORD: str
 
     # Env Redis
     REDIS_HOST: str
     REDIS_PORT: int
-    REDIS_PASSWORD: str
+    # REDIS_PASSWORD: str
     REDIS_DATABASE: int
 
     # Env Token
@@ -77,6 +83,11 @@ class Settings(BaseSettings):
     MYSQL_ECHO: bool = False
     MYSQL_DATABASE: str = 'fba'
     MYSQL_CHARSET: str = 'utf8mb4'
+
+    # Pgsql
+    PGSQL_ECHO: bool = True
+    PGSQL_DATABASE: str = 'api_admin'
+    PGSQL_CHARSET: str = 'utf8mb4'
 
     # Redis
     REDIS_TIMEOUT: int = 5

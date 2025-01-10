@@ -6,7 +6,7 @@ from backend.app.generator.crud.crud_gen_model import gen_model_dao
 from backend.app.generator.model import GenModel
 from backend.app.generator.schema.gen_model import CreateGenModelParam, UpdateGenModelParam
 from backend.common.exception import errors
-from backend.database.db_mysql import async_db_session
+from backend.database.db_pgsql import async_db_session
 from backend.utils.type_conversion import sql_type_to_pydantic
 
 

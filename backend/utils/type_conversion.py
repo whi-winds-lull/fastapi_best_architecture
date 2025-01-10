@@ -28,7 +28,7 @@ def sql_type_to_sqlalchemy(typing: str) -> str:
         GenModelColumnType.INTEGER: 'INTEGER',
         GenModelColumnType.JSON: 'JSON',
         GenModelColumnType.LONGBLOB: 'LONGBLOB',
-        GenModelColumnType.LONGTEXT: 'LONGTEXT',
+        GenModelColumnType.LONGTEXT: 'TEXT',
         GenModelColumnType.MEDIUMBLOB: 'MEDIUMBLOB',
         GenModelColumnType.MEDIUMINT: 'MEDIUMINT',
         GenModelColumnType.MEDIUMTEXT: 'MEDIUMTEXT',

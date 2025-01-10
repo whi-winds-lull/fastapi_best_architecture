@@ -15,16 +15,24 @@ def init_celery() -> Celery:
 
     # Celery Config
     # https://docs.celeryq.dev/en/stable/userguide/configuration.html
+    # _redis_broker = (
+    #     f'redis://:{settings.REDIS_PASSWORD}@{settings.REDIS_HOST}:'
+    #     f'{settings.REDIS_PORT}/{task_settings.CELERY_BROKER_REDIS_DATABASE}'
+    # )
     _redis_broker = (
-        f'redis://:{settings.REDIS_PASSWORD}@{settings.REDIS_HOST}:'
+        f'redis://{settings.REDIS_HOST}:'
         f'{settings.REDIS_PORT}/{task_settings.CELERY_BROKER_REDIS_DATABASE}'
     )
     _amqp_broker = (
         f'amqp://{task_settings.RABBITMQ_USERNAME}:{task_settings.RABBITMQ_PASSWORD}@'
         f'{task_settings.RABBITMQ_HOST}:{task_settings.RABBITMQ_PORT}'
     )
+    # _result_backend = (
+    #     f'redis://:{settings.REDIS_PASSWORD}@{settings.REDIS_HOST}:'
+    #     f'{settings.REDIS_PORT}/{task_settings.CELERY_BACKEND_REDIS_DATABASE}'
+    # )
     _result_backend = (
-        f'redis://:{settings.REDIS_PASSWORD}@{settings.REDIS_HOST}:'
+        f'redis://{settings.REDIS_HOST}:'
         f'{settings.REDIS_PORT}/{task_settings.CELERY_BACKEND_REDIS_DATABASE}'
     )
     _result_backend_transport_options = {

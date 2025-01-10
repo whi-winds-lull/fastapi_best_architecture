@@ -22,7 +22,7 @@ from backend.app.generator.service.gen_model_service import gen_model_service
 from backend.common.enums import GenModelColumnType
 from backend.common.exception import errors
 from backend.core.path_conf import BasePath
-from backend.database.db_mysql import async_db_session
+from backend.database.db_pgsql import async_db_session
 from backend.utils.gen_template import gen_template
 from backend.utils.serializers import select_as_dict, select_list_serialize
 

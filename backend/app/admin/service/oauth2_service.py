@@ -13,7 +13,7 @@ from backend.app.admin.service.login_log_service import LoginLogService
 from backend.common.enums import LoginLogStatusType, UserSocialType
 from backend.common.exception.errors import AuthorizationError
 from backend.common.security import jwt
-from backend.database.db_mysql import async_db_session
+from backend.database.db_pgsql import async_db_session
 from backend.database.db_redis import redis_client
 from backend.utils.timezone import timezone
 

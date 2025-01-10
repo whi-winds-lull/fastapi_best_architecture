@@ -3,6 +3,7 @@
 from datetime import datetime
 from typing import Annotated
 
+from sqlalchemy import TIMESTAMP
 from sqlalchemy.orm import DeclarativeBase, Mapped, MappedAsDataclass, declared_attr, mapped_column
 
 from backend.utils.timezone import timezone
@@ -30,7 +31,7 @@ class DateTimeMixin(MappedAsDataclass):
         init=False, default_factory=timezone.now, sort_order=999, comment='创建时间'
     )
     updated_time: Mapped[datetime | None] = mapped_column(
-        init=False, onupdate=timezone.now, sort_order=999, comment='更新时间'
+        TIMESTAMP(timezone=True), init=False, onupdate=timezone.now, sort_order=999, comment='更新时间'
     )
 
 

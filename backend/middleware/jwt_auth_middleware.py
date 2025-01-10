@@ -10,7 +10,7 @@ from backend.common.exception.errors import TokenError
 from backend.common.log import log
 from backend.common.security import jwt
 from backend.core.conf import settings
-from backend.database.db_mysql import async_db_session
+from backend.database.db_pgsql import async_db_session
 from backend.utils.serializers import MsgSpecJSONResponse
 
 

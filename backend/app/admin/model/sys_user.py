@@ -3,12 +3,12 @@
 from datetime import datetime
 from typing import Union
 
-from sqlalchemy import ForeignKey, String
+from sqlalchemy import TIMESTAMP, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from backend.app.admin.model.sys_user_role import sys_user_role
 from backend.common.model import Base, id_key
-from backend.database.db_mysql import uuid4_str
+from backend.database.db_pgsql import uuid4_str
 from backend.utils.timezone import timezone
 
 
@@ -31,7 +31,8 @@ class User(Base):
     avatar: Mapped[str | None] = mapped_column(String(255), default=None, comment='头像')
     phone: Mapped[str | None] = mapped_column(String(11), default=None, comment='手机号')
     join_time: Mapped[datetime] = mapped_column(init=False, default_factory=timezone.now, comment='注册时间')
-    last_login_time: Mapped[datetime | None] = mapped_column(init=False, onupdate=timezone.now, comment='上次登录')
+    last_login_time: Mapped[datetime | None] = mapped_column(TIMESTAMP(timezone=True), init=False,
+                                                             onupdate=timezone.now, comment='上次登录')
     # 部门用户一对多
     dept_id: Mapped[int | None] = mapped_column(
         ForeignKey('sys_dept.id', ondelete='SET NULL'), default=None, comment='部门关联ID'
